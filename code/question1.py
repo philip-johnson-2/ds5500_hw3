@@ -38,7 +38,7 @@ states = data['STNAME'].values
 revs = data['TFEDREV'].values
 plt.bar(np.arange(len(states)), revs)
 plt.xlabel("State Rank")
-plt.ylabel("Fed Funds Recieved ($)")
+plt.ylabel("Total Funding Received in Dollars")
 plt.show()
 
 
