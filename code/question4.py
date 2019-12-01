@@ -82,7 +82,7 @@ math_scores = pd.DataFrame(math_scores)
 budget_data = pd.merge(ed_data, math_scores, left_index=True, right_index=True)
 
 # get population stats 
-national_average = math_scores.mean()
+national_average = math_scores['ALL_MTH00PCTPROF_1516'].mean()
 std_dev = statistics.stdev(budget_data['ALL_MTH00PCTPROF_1516'].dropna())
 
 # use the national average and stdev to identify the score cutpoint
