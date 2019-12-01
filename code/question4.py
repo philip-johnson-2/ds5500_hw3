@@ -94,10 +94,8 @@ sum_rev_above = budget_data.query('ALL_MTH00PCTPROF_1516>' + str(perf_threshold)
 # get amount of budget to be cut vs overall and create an updated funding field
 budget_cut = percent_15_total / sum_rev_above
 budget_data['Updated_Funding'] = budget_data['TFEDREV']
-budget_data.loc[budget_data['ALL_MTH00PCTPROF_1516'] > perf_threshold, 'Updated_Funding'
-] = budget_data.loc[
-    budget_data['ALL_MTH00PCTPROF_1516'] > perf_threshold, 'Updated_Funding'
-].copy() * (perf_threshold)
+budget_data.loc[budget_data['ALL_MTH00PCTPROF_1516'] > perf_threshold, 'Updated_Funding'] = budget_data.loc[
+    budget_data['ALL_MTH00PCTPROF_1516'] > perf_threshold, 'Updated_Funding'].copy() * (perf_threshold)
 
 
 data = budget_data[['LEAID','STNAME','TFEDREV','Updated_Funding']]
