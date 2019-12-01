@@ -5,8 +5,8 @@ import os
 import plotly.graph_objects as go
 
 # read the base dataset
-ed_data = pd.read_csv(os.path.expanduser('~/Desktop/Sdf16_1a.txt'), sep='\t')
-math_data = pd.read_csv(os.path.expanduser('~/Desktop/math-achievement-lea-sy2015-16.csv'))
+ed_data = pd.read_csv(os.path.expanduser('~/Desktop/Sdf16_1a.txt'), sep='\t', low_memory=False)
+math_data = pd.read_csv(os.path.expanduser('~/Desktop/math-achievement-lea-sy2015-16.csv'), low_memory=False)
 
 
 # function for cleaning data
@@ -59,7 +59,9 @@ def clean_data(field):
 
 
 math_scores = clean_data(math_data['ALL_MTH00PCTPROF_1516'])
+print(math_scores)
 plt.hist(math_scores.values, bins=20)
 plt.xlabel("% of Students Scoring Proficient in Math")
 plt.ylabel("Count of Districts")
 plt.show()
+
