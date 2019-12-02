@@ -86,7 +86,7 @@ national_average = math_scores['ALL_MTH00PCTPROF_1516'].mean()
 std_dev = statistics.stdev(budget_data['ALL_MTH00PCTPROF_1516'].dropna())
 
 # use the national average and stdev to identify the score cutpoint
-perf_threshold = national_average + std_dev
+perf_threshold = national_average + (std_dev*.5)
 
 # get sum of revenue for districts above performance threshold
 sum_rev_above = budget_data.query('ALL_MTH00PCTPROF_1516>' + str(perf_threshold))['TFEDREV'].sum()
@@ -95,7 +95,7 @@ sum_rev_above = budget_data.query('ALL_MTH00PCTPROF_1516>' + str(perf_threshold)
 budget_cut = percent_15_total / sum_rev_above
 budget_data['Updated_Funding'] = budget_data['TFEDREV']
 budget_data.loc[budget_data['ALL_MTH00PCTPROF_1516'] > perf_threshold, 'Updated_Funding'] = budget_data.loc[
-    budget_data['ALL_MTH00PCTPROF_1516'] > perf_threshold, 'Updated_Funding'].copy() * (perf_threshold)
+    budget_data['ALL_MTH00PCTPROF_1516'] > perf_threshold, 'Updated_Funding'].copy() * (budget_cut)
 
 
 data = budget_data[['LEAID','STNAME','TFEDREV','Updated_Funding']]
