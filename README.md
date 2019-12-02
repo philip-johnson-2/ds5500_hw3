@@ -42,7 +42,7 @@ In order to reduce the budget by 15%, the US would need to reduce the budget by 
 
 The updated funding per state is below. I leveraged national math proficiency scores to identify specific districts that would be getting budget cuts. 
 
-![Screenshot](districs_budget_decrease.png)
+![Screenshot](updated_funding.png)
 
 
 ## Question 5
